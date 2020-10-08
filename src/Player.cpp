@@ -5,18 +5,18 @@ Player::Player(): m_currentAnimationState(PLAYER_IDLE_RIGHT)
 {
 	TextureManager::Instance()->loadSpriteSheet(
 		"../Assets/sprites/atlas.txt",
-		"../Assets/sprites/atlas.png", 
-		"spritesheet");
+		"../Assets/sprites/sprites.png", 
+		"sprite");
 
 
 
-	setSpriteSheet(TextureManager::Instance()->getSpriteSheet("spritesheet"));
+	setSpriteSheet(TextureManager::Instance()->getSpriteSheet("sprite"));
 	
 	// set frame width
-	setWidth(53); 
+	setWidth(56); 
 
 	// set frame height
-	setHeight(58); 
+	setHeight(100); 
 
 	getTransform()->position = glm::vec2(75.0f, 500.0f);
 	getRigidBody()->velocity = glm::vec2(0.0f, 0.0f);
@@ -40,12 +40,12 @@ void Player::draw()
 	switch(m_currentAnimationState)
 	{
 	case PLAYER_IDLE_RIGHT:
-		TextureManager::Instance()->playAnimation("spritesheet", getAnimation("idle"),
-			x, y, 0.12f, 0, 255, true);
+		TextureManager::Instance()->playAnimation("sprite", getAnimation("idle"),
+			x, y, 0.80f, 0, 255, true);
 		break;
 	case PLAYER_IDLE_LEFT:
-		TextureManager::Instance()->playAnimation("spritesheet", getAnimation("idle"),
-			x, y, 0.12f, 0, 255, true, SDL_FLIP_HORIZONTAL);
+		TextureManager::Instance()->playAnimation("sprite", getAnimation("idle"),
+			x, y, 0.80f, 0, 255, true, SDL_FLIP_HORIZONTAL);
 		break;
 	case PLAYER_RUN_RIGHT:
 		TextureManager::Instance()->playAnimation("spritesheet", getAnimation("run"),
@@ -79,11 +79,17 @@ void Player::m_buildAnimations()
 	Animation idleAnimation = Animation();
 
 	idleAnimation.name = "idle";
-	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("megaman-idle-0"));
-	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("megaman-idle-1"));
-	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("megaman-idle-2"));
-	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("megaman-idle-3"));
-
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-0"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-1"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-2"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-3"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-4"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-5"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-6"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-7"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-8"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-9"));
+	idleAnimation.frames.push_back(getSpriteSheet()->getFrame("sprites-10"));
 	setAnimation(idleAnimation);
 
 

@@ -71,7 +71,7 @@ void StartScene::start()
 	m_pStudentName->setParent(this);
 	addChild(m_pStudentName);
 
-	m_pStudentName = new Label("i dont know", "Consolas", 20, red, glm::vec2(400.0f, 240.0f));
+	m_pStudentName = new Label("101232052", "Consolas", 20, red, glm::vec2(400.0f, 240.0f));
 	m_pStudentName->setParent(this);
 	addChild(m_pStudentName);
 

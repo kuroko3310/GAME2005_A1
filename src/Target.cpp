@@ -7,9 +7,9 @@ const glm::vec2 gravity = glm::vec2(0.0f, 9.8f);
 
 Target::Target()
 {
-	TextureManager::Instance()->load("../Assets/textures/Circle.png","circle");
+	TextureManager::Instance()->load("../Assets/textures/Bomb.png","Bomb");
 
-	const auto size = TextureManager::Instance()->getTextureSize("circle");
+	const auto size = TextureManager::Instance()->getTextureSize("Bomb");
 	setWidth(size.x);
 	setHeight(size.y);
 	
@@ -30,7 +30,7 @@ void Target::draw()
 	const auto y = getTransform()->position.y;
 
 	// draw the target
-	TextureManager::Instance()->draw("circle", x, y, 0, 255, true);
+	TextureManager::Instance()->draw("Bomb", x, y, 0, 255, true);
 }
 
 void Target::update()
@@ -67,7 +67,30 @@ void Target::m_move()
 
 void Target::m_checkBounds()
 {
+	int floor = 580;
+	int wall = 800;
+
+	if (getTransform()->position.y < 0)
+	{
+		getTransform()->position.y = 0;
+	}
+
+	if (getTransform()->position.y + getHeight() > floor)
+	{
+		getTransform()->position.y = floor - getHeight();
+	}
+
+	if (getTransform()->position.x < 0)
+	{
+		getTransform()->position.x = 0;
+	}
+
+	if (getTransform()->position.x + 15 > wall)
+	{
+		getTransform()->position.x = wall - 15;
+	}
 }
+
 
 void Target::m_reset()
 {
