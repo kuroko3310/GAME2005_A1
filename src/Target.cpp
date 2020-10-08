@@ -50,8 +50,7 @@ void Target::m_move()
 	float deltaTime = 1.0f / FPS;
 	
 	getRigidBody()->acceleration = gravity;
-	//getRigidBody()->velocity += (getRigidBody()->acceleration + gravity) * deltaTime;
-
+	
 	
 	if (!isGravityEnabled)
 	{
@@ -119,3 +118,5 @@ float Target::getDistance(GameObject* pOther) {
 	float b = myPos.y - otherPos.y;
 	return sqrt(a * a + b * b);
 }
+
+

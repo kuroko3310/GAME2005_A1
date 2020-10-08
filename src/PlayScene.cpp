@@ -230,9 +230,14 @@ void PlayScene::GUI_Function() const
 	{
 		m_pBall->doThrow();
 		// Display angle
-		float radAngle = atan(-m_pBall->getRigidBody()->velocity.y / m_pBall->getRigidBody()->velocity.x);
-		float degAngle = (radAngle / PI) * 180;
-		m_pAngleLabel->setText("Angle = " + std::to_string(degAngle) + " degree");
+		float bvelocityX = m_pBall->getRigidBody()->velocity.x;
+		float bvelocityY = -m_pBall->getRigidBody()->velocity.y;
+		if ((bvelocityY / bvelocityX)>(-2/PI)|| (bvelocityY / bvelocityX) < (2 / PI))
+		{
+			float radAngle = atan(bvelocityY / bvelocityX);
+			float degAngle = (radAngle / PI) * 180;
+			m_pAngleLabel->setText("Angle = " + std::to_string(degAngle) + " degree");
+		}
 	}
 
 	
@@ -286,6 +291,8 @@ void PlayScene::GUI_Function() const
 
 	// Display Acceleration
 	m_pAccLabel->setText("Acceleration = " + std::to_string(-m_pBall->getRigidBody()->acceleration.y));
+
+
 
 
 	ImGui::End();
