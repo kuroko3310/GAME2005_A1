@@ -16,7 +16,7 @@ public:
 
 	bool isGravityEnabled = false;
 	glm::vec2 throwSpeed = { 0,0 };
-	glm::vec2 throwPosition = {75.0f,500.0f};
+	glm::vec2 throwPosition = {75.0f,400.0f};
 
 	void doThrow();
 	bool isColliding(GameObject*);

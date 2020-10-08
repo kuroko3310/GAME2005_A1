@@ -13,7 +13,7 @@ Target::Target()
 	setWidth(size.x);
 	setHeight(size.y);
 	
-	getTransform()->position = glm::vec2(75.0f, 500.0f);
+	getTransform()->position = glm::vec2(75.0f, 400.0f);
 	getRigidBody()->velocity = glm::vec2(0, 0);
 	getRigidBody()->isColliding = false;
 
@@ -67,7 +67,7 @@ void Target::m_move()
 
 void Target::m_checkBounds()
 {
-	int floor = 580;
+	int floor = 465;
 	int wall = 800;
 
 	if (getTransform()->position.y < 0)
@@ -75,9 +75,9 @@ void Target::m_checkBounds()
 		getTransform()->position.y = 0;
 	}
 
-	if (getTransform()->position.y + getHeight() > floor)
+	if (getTransform()->position.y + 15 > floor)
 	{
-		getTransform()->position.y = floor - getHeight();
+		getTransform()->position.y = floor - 15;
 	}
 
 	if (getTransform()->position.x < 0)

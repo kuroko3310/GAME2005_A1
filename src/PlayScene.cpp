@@ -124,7 +124,7 @@ void PlayScene::handleEvents()
 void PlayScene::start()
 {
 	// Background
-	TextureManager::Instance()->load("../Assets/textures/Background.png", "background");
+	TextureManager::Instance()->load("../Assets/textures/bg.png", "background");
 
 
 	// Set GUI Title
